@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +17,13 @@ public class MainActivity extends AppCompatActivity {
         btnGuess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if(game.c)
+                boolean decision = game.checkCorrect();
+
+                if(decision){
+                    Toast.makeText(MainActivity.this, "TAMA", Toast.LENGTH_LONG).show();
+                } else{
+                    Toast.makeText(MainActivity.this, "MALI", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

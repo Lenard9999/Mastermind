@@ -152,13 +152,13 @@ public class GameView extends SurfaceView {
             wrongPosition++;
         }
 
-        if(choiceIndex1 == randomComb[2]){
+        if(choiceIndex3 == randomComb[2]){
             correctGuess++;
         } else if(choiceIndex1 == randomComb[0] || choiceIndex1 == randomComb[1] || choiceIndex1 == randomComb[3]){
             wrongPosition++;
         }
 
-        if(choiceIndex1 == randomComb[3]){
+        if(choiceIndex4 == randomComb[3]){
             correctGuess++;
         } else if(choiceIndex1 == randomComb[0] || choiceIndex1 == randomComb[1] || choiceIndex1 == randomComb[2]){
             wrongPosition++;

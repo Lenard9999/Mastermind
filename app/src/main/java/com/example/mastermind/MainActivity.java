@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         btnGuess.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                boolean decision = game.checkCorrect();
+                boolean decision = gameView.checkCorrect();
 
                 if(decision){
                     Toast.makeText(MainActivity.this, "TAMA", Toast.LENGTH_LONG).show();

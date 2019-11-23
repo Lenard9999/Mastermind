@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class GameView extends SurfaceView {
@@ -29,9 +28,6 @@ public class GameView extends SurfaceView {
 
     public GameView(Context context){
         super(context);
-
-
-        makeRandomCode();
 
         holder = getHolder();
         choices.add(scaleDown(BitmapFactory.decodeResource(getResources(), R.drawable.bugs_bunny), 250, true));
@@ -142,26 +138,25 @@ public class GameView extends SurfaceView {
                         choiceIndex4++;
                     GameView.this.invalidate();
                 }
+                //Toast.makeText(getContext(), String.valueOf(randomComb), Toast.LENGTH_SHORT).show();
+                checkCorrect();
             }
                 return true;
         }
         return false;
     }
 
-    private void makeRandomCode(){
-        randomComb = new int[] {1, 2, 3, 4};
-    }
-
     public boolean checkCorrect(){
         boolean decision = false;
 
-        if(choiceIndex1 == randomComb[0] &&
-            choiceIndex2 == randomComb[1] &&
-            choiceIndex3 == randomComb[2] &&
-            choiceIndex4 == randomComb[3]){
+        if(choiceIndex1 == randomComb.get(0) ||
+            choiceIndex2 == randomComb.get(1) ||
+            choiceIndex3 == randomComb.get(3) ||
+            choiceIndex4 == randomComb.get(4)){
             decision = true;
+            Toast.makeText(getContext(), "Correct", Toast.LENGTH_SHORT).show();
         }
-
+        Toast.makeText(getContext(), String.valueOf(randomComb), Toast.LENGTH_SHORT).show();
         return decision;
     }
 

@@ -29,6 +29,10 @@ public class GameView extends SurfaceView {
 
     public GameView(Context context){
         super(context);
+
+
+        makeRandomCode();
+
         holder = getHolder();
         choices.add(scaleDown(BitmapFactory.decodeResource(getResources(), R.drawable.bugs_bunny), 250, true));
         choices.add(scaleDown(BitmapFactory.decodeResource(getResources(), R.drawable.daffy_duck), 250, true));
@@ -144,5 +148,21 @@ public class GameView extends SurfaceView {
         return false;
     }
 
+    private void makeRandomCode(){
+        randomComb = new int[] {1, 2, 3, 4};
+    }
+
+    public boolean checkCorrect(){
+        boolean decision = false;
+
+        if(choiceIndex1 == randomComb[0] &&
+            choiceIndex2 == randomComb[1] &&
+            choiceIndex3 == randomComb[2] &&
+            choiceIndex4 == randomComb[3]){
+            decision = true;
+        }
+
+        return decision;
+    }
 
 }

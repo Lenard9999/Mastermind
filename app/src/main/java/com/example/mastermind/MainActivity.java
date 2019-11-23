@@ -1,8 +1,6 @@
 package com.example.mastermind;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,7 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
         btnGuess.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                
+
+                boolean decision = game.checkCorrect();
+
+                if(decision){
+                    Toast.makeText(MainActivity.this, "TAMA", Toast.LENGTH_LONG).show();
+                } else{
+                    Toast.makeText(MainActivity.this, "MALI", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

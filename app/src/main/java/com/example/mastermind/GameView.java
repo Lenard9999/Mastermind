@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GameView extends SurfaceView {
 
@@ -24,6 +25,7 @@ public class GameView extends SurfaceView {
     public int choiceIndex2 = 0;
     public int choiceIndex3 = 0;
     public int choiceIndex4 = 0;
+    public int randomComb[];
 
     public GameView(Context context){
         super(context);
@@ -90,7 +92,12 @@ public class GameView extends SurfaceView {
                 if( x > 20 && x < 20 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
                     if(choiceIndex1 == 6){
-                        choiceIndex1 = 0;
+                        if(choiceIndex2 == 0 || choiceIndex3 == 0 || choiceIndex4 == 0)
+                            choiceIndex1 = 1;
+                        else
+                            choiceIndex1 = 0;
+                    }else if(choiceIndex1+1 == choiceIndex2 || choiceIndex1+1 == choiceIndex3 || choiceIndex1+1 == choiceIndex4){
+                        choiceIndex1 += 2;
                     }else
                         choiceIndex1++;
                 GameView.this.invalidate();
@@ -99,7 +106,12 @@ public class GameView extends SurfaceView {
                 if( x > 270 && x < 270 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
                     if(choiceIndex2 == 6){
-                        choiceIndex2 = 0;
+                        if(choiceIndex1 == 0 || choiceIndex3 == 0 || choiceIndex4 == 0)
+                            choiceIndex2 = 1;
+                        else
+                            choiceIndex2 = 0;
+                    }else if(choiceIndex2+1 == choiceIndex1 || choiceIndex2+1 == choiceIndex3 || choiceIndex2+1 == choiceIndex4){
+                        choiceIndex2 += 2;
                     }else
                         choiceIndex2++;
                 GameView.this.invalidate();
@@ -108,7 +120,12 @@ public class GameView extends SurfaceView {
                 if( x > 520 && x < 520 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
                     if(choiceIndex3 == 6){
-                        choiceIndex3 = 0;
+                        if(choiceIndex1 == 0 || choiceIndex2 == 0 || choiceIndex4 == 0)
+                            choiceIndex3 = 1;
+                        else
+                            choiceIndex3 = 0;
+                    }else if(choiceIndex3+1 == choiceIndex1 || choiceIndex3+1 == choiceIndex2 || choiceIndex3+1 == choiceIndex4){
+                        choiceIndex3 += 2;
                     }else
                         choiceIndex3++;
                 GameView.this.invalidate();
@@ -117,7 +134,12 @@ public class GameView extends SurfaceView {
                 if( x > 770 && x < 770 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
                     if(choiceIndex4 == 6){
-                        choiceIndex4 = 0;
+                        if(choiceIndex1 == 0 || choiceIndex2 == 0 || choiceIndex3 == 0)
+                            choiceIndex4 = 1;
+                        else
+                            choiceIndex4 = 0;
+                    }else if(choiceIndex4+1 == choiceIndex1 || choiceIndex4+1 == choiceIndex2 || choiceIndex4+1 == choiceIndex3){
+                        choiceIndex4 += 2;
                     }else
                         choiceIndex4++;
                 GameView.this.invalidate();

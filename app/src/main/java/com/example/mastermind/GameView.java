@@ -1,5 +1,7 @@
 package com.example.mastermind;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -37,6 +39,13 @@ public class GameView extends SurfaceView {
         choices.add(scaleDown(BitmapFactory.decodeResource(getResources(), R.drawable.roadrunner), 250, true));
         choices.add(scaleDown(BitmapFactory.decodeResource(getResources(), R.drawable.silvester), 250, true));
         choices.add(scaleDown(BitmapFactory.decodeResource(getResources(), R.drawable.tweety_bird), 250, true));
+
+
+
+
+
+
+
 
         holder.addCallback(new SurfaceHolder.Callback() {
             @Override
@@ -91,63 +100,32 @@ public class GameView extends SurfaceView {
                 //Check if the x and y position of the touch is inside the bitmap
                 if( x > 20 && x < 20 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
-                    if(choiceIndex1 == 6){
-                        if(choiceIndex2 == 0 || choiceIndex3 == 0 || choiceIndex4 == 0)
-                            choiceIndex1 = 1;
-                        else
-                            choiceIndex1 = 0;
-                    }else if(choiceIndex1+1 == choiceIndex2 || choiceIndex1+1 == choiceIndex3 || choiceIndex1+1 == choiceIndex4){
-                        choiceIndex1 += 2;
-                    }else
-                        choiceIndex1++;
-                GameView.this.invalidate();
+                    choiceIndex1++;
+                    GameView.this.invalidate();
                 }
 
                 if( x > 270 && x < 270 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
-                    if(choiceIndex2 == 6){
-                        if(choiceIndex1 == 0 || choiceIndex3 == 0 || choiceIndex4 == 0)
-                            choiceIndex2 = 1;
-                        else
-                            choiceIndex2 = 0;
-                    }else if(choiceIndex2+1 == choiceIndex1 || choiceIndex2+1 == choiceIndex3 || choiceIndex2+1 == choiceIndex4){
-                        choiceIndex2 += 2;
-                    }else
-                        choiceIndex2++;
-                GameView.this.invalidate();
+                    choiceIndex2++;
+                    GameView.this.invalidate();
                 }
 
                 if( x > 520 && x < 520 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
-                    if(choiceIndex3 == 6){
-                        if(choiceIndex1 == 0 || choiceIndex2 == 0 || choiceIndex4 == 0)
-                            choiceIndex3 = 1;
-                        else
-                            choiceIndex3 = 0;
-                    }else if(choiceIndex3+1 == choiceIndex1 || choiceIndex3+1 == choiceIndex2 || choiceIndex3+1 == choiceIndex4){
-                        choiceIndex3 += 2;
-                    }else
-                        choiceIndex3++;
-                GameView.this.invalidate();
+                    choiceIndex3++;
+                    GameView.this.invalidate();
                 }
 
                 if( x > 770 && x < 770 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
-                    if(choiceIndex4 == 6){
-                        if(choiceIndex1 == 0 || choiceIndex2 == 0 || choiceIndex3 == 0)
-                            choiceIndex4 = 1;
-                        else
-                            choiceIndex4 = 0;
-                    }else if(choiceIndex4+1 == choiceIndex1 || choiceIndex4+1 == choiceIndex2 || choiceIndex4+1 == choiceIndex3){
-                        choiceIndex4 += 2;
-                    }else
-                        choiceIndex4++;
-                GameView.this.invalidate();
+                    choiceIndex4++;
+                    GameView.this.invalidate();
                 }
             }
                 return true;
         }
         return false;
     }
+
 
 }

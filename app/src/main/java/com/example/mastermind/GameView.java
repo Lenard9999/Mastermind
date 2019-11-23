@@ -5,7 +5,6 @@ import java.util.Collections;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.BlendMode;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.view.MotionEvent;
@@ -17,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class GameView extends SurfaceView {
 
@@ -27,7 +25,7 @@ public class GameView extends SurfaceView {
     public int choiceIndex2 = 0;
     public int choiceIndex3 = 0;
     public int choiceIndex4 = 0;
-    public int randomComb[];
+    public ArrayList<Integer> randomComb = new ArrayList<>();
 
     public GameView(Context context){
         super(context);
@@ -41,7 +39,14 @@ public class GameView extends SurfaceView {
         choices.add(scaleDown(BitmapFactory.decodeResource(getResources(), R.drawable.tweety_bird), 250, true));
 
 
-
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (int i=0; i<7; i++) {
+            list.add(new Integer(i));
+        }
+        Collections.shuffle(list);
+        for (int j=0; j<4; j++) {
+            randomComb.add(list.get(j));
+        }
 
 
 
@@ -100,25 +105,37 @@ public class GameView extends SurfaceView {
                 //Check if the x and y position of the touch is inside the bitmap
                 if( x > 20 && x < 20 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
-                    choiceIndex1++;
+                    if(choiceIndex1 == 6)
+                        choiceIndex1 = 0;
+                    else
+                        choiceIndex1++;
                     GameView.this.invalidate();
                 }
 
                 if( x > 270 && x < 270 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
-                    choiceIndex2++;
+                    if(choiceIndex2 == 6)
+                        choiceIndex2 = 0;
+                    else
+                        choiceIndex2++;
                     GameView.this.invalidate();
                 }
 
                 if( x > 520 && x < 520 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
-                    choiceIndex3++;
+                    if(choiceIndex3 == 6)
+                        choiceIndex3 = 0;
+                    else
+                        choiceIndex3++;
                     GameView.this.invalidate();
                 }
 
                 if( x > 770 && x < 770 + choices.get(0).getWidth() && y > 50 && y < 50 + choices.get(0).getHeight() )
                 {
-                    choiceIndex4++;
+                    if(choiceIndex4 == 6)
+                        choiceIndex4 = 0;
+                    else
+                        choiceIndex4++;
                     GameView.this.invalidate();
                 }
             }

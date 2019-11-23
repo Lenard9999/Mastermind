@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnGuess.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
                 boolean decision = gameView.checkCorrect();
 
                 if(decision){
@@ -34,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     Toast.makeText(MainActivity.this, "MALI", Toast.LENGTH_LONG).show();
                 }
+
             }
         });
 

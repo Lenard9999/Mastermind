@@ -158,6 +158,38 @@ public class GameView extends SurfaceView {
         }
         Toast.makeText(getContext(), String.valueOf(randomComb), Toast.LENGTH_SHORT).show();
         return decision;
+
+
+    public String checkCorrect(){
+        String decision = "0 correct guesses, 0 in wrong position";
+        int correctGuess = 0;
+        int wrongPosition = 0;
+
+        if(choiceIndex1 == randomComb[0]){
+            correctGuess++;
+        } else if(choiceIndex1 == randomComb[1] || choiceIndex1 == randomComb[2] || choiceIndex1 == randomComb[3]){
+            wrongPosition++;
+        }
+
+        if(choiceIndex2 == randomComb[1]){
+            correctGuess++;
+        } else if(choiceIndex1 == randomComb[0] || choiceIndex1 == randomComb[2] || choiceIndex1 == randomComb[3]){
+            wrongPosition++;
+        }
+
+        if(choiceIndex3 == randomComb[2]){
+            correctGuess++;
+        } else if(choiceIndex1 == randomComb[0] || choiceIndex1 == randomComb[1] || choiceIndex1 == randomComb[3]){
+            wrongPosition++;
+        }
+
+        if(choiceIndex4 == randomComb[3]){
+            correctGuess++;
+        } else if(choiceIndex1 == randomComb[0] || choiceIndex1 == randomComb[1] || choiceIndex1 == randomComb[2]){
+            wrongPosition++;
+        }
+
+        return "" + correctGuess + "correct Guesses, " + wrongPosition + "in wrong position.";
     }
 
 }

@@ -17,13 +17,7 @@ public class MainActivity extends AppCompatActivity {
         btnGuess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean decision = game.checkCorrect();
-
-                if(decision){
-                    Toast.makeText(MainActivity.this, "TAMA", Toast.LENGTH_LONG).show();
-                } else{
-                    Toast.makeText(MainActivity.this, "MALI", Toast.LENGTH_LONG).show();
-                }
+                Toast.makeText(MainActivity.this, game.checkCorrect(), Toast.LENGTH_LONG).show();
             }
         });
 

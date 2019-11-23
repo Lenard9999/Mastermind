@@ -135,17 +135,36 @@ public class GameView extends SurfaceView {
         randomComb = new int[] {1, 2, 3, 4};
     }
 
-    public boolean checkCorrect(){
-        boolean decision = false;
+    public String checkCorrect(){
+        String decision = "0 correct guesses, 0 in wrong position";
+        int correctGuess = 0;
+        int wrongPosition = 0;
 
-        if(choiceIndex1 == randomComb[0] &&
-            choiceIndex2 == randomComb[1] &&
-            choiceIndex3 == randomComb[2] &&
-            choiceIndex4 == randomComb[3]){
-            decision = true;
+        if(choiceIndex1 == randomComb[0]){
+            correctGuess++;
+        } else if(choiceIndex1 == randomComb[1] || choiceIndex1 == randomComb[2] || choiceIndex1 == randomComb[3]){
+            wrongPosition++;
         }
 
-        return decision;
+        if(choiceIndex2 == randomComb[1]){
+            correctGuess++;
+        } else if(choiceIndex1 == randomComb[0] || choiceIndex1 == randomComb[2] || choiceIndex1 == randomComb[3]){
+            wrongPosition++;
+        }
+
+        if(choiceIndex1 == randomComb[2]){
+            correctGuess++;
+        } else if(choiceIndex1 == randomComb[0] || choiceIndex1 == randomComb[1] || choiceIndex1 == randomComb[3]){
+            wrongPosition++;
+        }
+
+        if(choiceIndex1 == randomComb[3]){
+            correctGuess++;
+        } else if(choiceIndex1 == randomComb[0] || choiceIndex1 == randomComb[1] || choiceIndex1 == randomComb[2]){
+            wrongPosition++;
+        }
+
+        return "" + correctGuess + "correct Guesses, " + wrongPosition + "in wrong position.";
     }
 
 }
